@@ -1,5 +1,7 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+It is a simple blog that connects to database in supabase. you will need to create a table "BlogList" in supabase and add the url and anon key in .env.local file to see it working
+
 ## Getting Started
 
 First, run the development server:
