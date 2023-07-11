@@ -34,11 +34,13 @@ export default function Home() {
     getPosts();
   }
 
-  const [posts, setPosts] = useState([]);
+  const [posts, setPosts] = useState<any[]>([]);
   async function getPosts() {
     const { data } = await supabase.from("BlogList").select(); // Select all the tasks from the Task Table
-    setLoading(false);
-    setPosts(data);
+    if (data !== null) {
+      setLoading(false);
+      setPosts(data);
+    }
     console.log(posts);
   }
 
