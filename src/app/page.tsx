@@ -34,7 +34,9 @@ export default function Home() {
     getPosts();
   }
 
-  const [posts, setPosts] = useState<any[]>([]);
+  const [posts, setPosts] = useState<
+    { id: BigInteger; created_at: String; title: String; description: String }[]
+  >([]);
   async function getPosts() {
     const { data } = await supabase.from("BlogList").select(); // Select all the tasks from the Task Table
     if (data !== null) {
@@ -44,7 +46,7 @@ export default function Home() {
     console.log(posts);
   }
 
-  async function deleteTask(id) {
+  async function deleteTask(id: BigInteger) {
     await supabase.from("BlogList").delete().eq("id", id); // the id of row to delete
     getPosts();
   }
